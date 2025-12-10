@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap:https://nkwane-pharmacy-limited.github.io/sitemap.xml
