@@ -1,0 +1,1921 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nkwanepharmacy ltd</title>
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --secondary: #10b981;
+            --secondary-dark: #0d9488;
+            --accent: #8b5cf6;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--primary-light) 100%);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--darker);
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--darker);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding:0 20px;
+           
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            gap: 8px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover:before {
+            left: 0;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-secondary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:before {
+            background: var(--gradient-primary);
+        }
+
+        .btn-outline:hover {
+            color: white;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--darker);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+          
+            display: flex;
+            list-style: none;
+            gap:35px;
+          
+        }
+
+        .nav-links a {
+            text-decoration:none;
+            color: var(--dark);
+            font-weight: 400;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+
+
+           
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+
+ 
+
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+ 
+
+
+
+
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-input {
+            padding: 10px 40px 10px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius-md);
+            width: 200px;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            width: 250px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="%232563eb" opacity="0.03"/></svg>');
+            background-size: cover;
+            z-index: -1;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image-main {
+            width: 100%;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+        }
+
+        .hero-image:hover .hero-image-main {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 15px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: -5%;
+            animation-delay: 0.5s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 10%;
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Services Section */
+        .services {
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .service-card:hover:before {
+            height: 100%;
+        }
+
+        .service-card:hover .service-icon,
+        .service-card:hover h3,
+        .service-card:hover p {
+            color: white;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        /* Products Section */
+        .products {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.03) 0%, rgba(37, 99, 235, 0.03) 100%);
+        }
+
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            background: white;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: var(--transition-slow);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-category {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--darker);
+        }
+
+        .product-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .current-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .original-price {
+            font-size: 1rem;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        /* Health Monitor Section */
+        .health-monitor {
+            background-color: white;
+        }
+
+        .monitor-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .monitor-form {
+            background: var(--light);
+            padding: 40px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--darker);
+        }
+
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius-md);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .monitor-results {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .results-title {
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .results-title:after {
+            background: white;
+        }
+
+        .result-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .result-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .result-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .result-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .result-fill {
+            height: 100%;
+            background: white;
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Doctors Section */
+        .doctors {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.03) 0%, rgba(16, 185, 129, 0.03) 100%);
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .doctor-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .doctor-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+        }
+
+        .doctor-image img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .doctor-info {
+            padding: 25px;
+        }
+
+        .doctor-specialty {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .doctor-rating {
+            color: var(--warning);
+            margin-bottom: 15px;
+        }
+
+        .doctor-availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: var(--light);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .available {
+            color: var(--secondary);
+        }
+
+        .unavailable {
+            color: var(--danger);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            color: white;
+            padding: 80px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            color: #94a3b8;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.2rem; }
+            
+            .hero-container,
+            .monitor-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links,
+            .header-actions .search-container {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            
+            .service-card,
+            .product-card,
+            .doctor-card {
+                padding: 25px 20px;
+            }
+            
+            .floating-element {
+                display: none;
+            }
+        }
+
+   #list{
+       
+        color:lightblue;
+
+    }
+  .head{
+        color:black;
+        font-size:42px;
+         font-family:arial;
+          font-weight: bold;
+          padding-right:10px;
+         gap:5px;
+   }
+   .about{ 
+    
+        border:0px solid orange  ;
+        background-color:lightblue;
+        color:blue;
+        font-size:25px;
+          height:300px;
+       border-radius: 5px ;
+      }
+
+    li{
+
+       color:blue;
+      font-family:arial;
+      padding-buttom:10px;
+      text-align:left;
+       font-size:24px;
+   }
+
+   .depert{color:blue;
+      font-family:italic;
+      padding-buttom:10px;
+      text-align:left;
+       font-size:24px;
+   }
+   .image{
+           border-radius:5px solid black;
+           border:10px;
+
+
+       }
+      .sub{
+
+       color:#f97316;
+       border-radius:20px;
+       border:2px ;
+       font-family:italic;
+       font-size:26px;
+       height:130px;
+
+    }
+    .locate{ 
+             color:#10b981;
+      font-family:italic;
+      padding-buttom:10px;
+      text-align:left;
+       font-size:24px;
+
+     }
+  .loca{ 
+             color:#10b981;
+      font-family:italic;
+      padding-buttom:10px;
+      text-align:center;
+       font-size:28px;
+
+}
+
+   .duct{
+           color:red;
+      font-family:elephant;
+      text-align:auto;
+       font-size:39px;
+
+         }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+
+<table bgcolor="#3b82f6" width="auto%">
+
+           <tr> <td>
+                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+</td><td><img src="nkwane logo.png" width="110" height="100"><td class="head">NKWANE   PHARMACY  LTD</td>
+<td></td><td></td>
+<td> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+                <button class="btn btn-secondary"> 
+                    <i class="fas fa-map-marker-alt"></i>Kahama,Shinyanga
+                </button></td></tr>
+</table>
+
+
+
+              
+
+
+
+        <div class="container header-container">
+    
+<nav>
+                 <ul class="nav-links">
+                    <li id="list"><a href="#home" class="nav-link active">Home</a></li>
+                    <li id="list"><a href="#services" class="nav-link">About Us</a></li>
+                    <li id="list"><a href="#products" class="nav-link">Products</a></li>
+                    <li id="list"><a href="#health-monitor" class="nav-link">Health Monitor</a></li>
+                    <li id="list"><a href="#doctors" class="nav-link">Departments</a></li>
+                    <li id="list"><a href="#contact" class="nav-link">Contact Us</a></li>
+                </ul>
+            </nav>
+
+
+               
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="animate__animated animate__fadeInUp">Welcome Nkwane Pharmacy-Your Health, Our <span class="highlight">Priority</span></h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">Experience premium pharmaceutical care with cutting-edge technology and compassionate service. Your wellness journey starts here.</p>
+                <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="#products" class="btn">
+                        <i class="fas fa-shopping-basket"></i> Browse Products
+                    </a>
+                    <a href="#health-monitor" class="btn btn-outline">
+                        <i class="fas fa-heartbeat"></i> Health Check
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image animate__animated animate__fadeIn">
+                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern Pharmacy" class="hero-image-main">
+                <div class="floating-elements">
+                    <div class="floating-element">
+                        <i class="fas fa-truck fa-2x" style="color: #10b981;"></i>
+                        <div>
+                            <h4>12hrs Delivery</h4>
+                            <p>Free shipping</p>
+                        </div>
+                    </div>
+                    <div class="floating-element">
+                        <i class="fas fa-user-md fa-2x" style="color: #2563eb;"></i>
+                        <div>
+                            <h4>Expert Advice</h4>
+                            <p>Licensed pharmacists</p>
+                        </div>
+                    </div>
+                    <div class="floating-element">
+                        <i class="fas fa-shield-alt fa-2x" style="color: #8b5cf6;"></i>
+                        <div>
+                            <h4>100% Safe</h4>
+                            <p>Authentic medicines</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Services & About us</h2>
+                
+<p class="about">Welcome to NKWANE PHARMACY ,your trusted partner in health and wellness.
+We are commited to providing safe reliable,and affordable pharmacetical care to our community.
+With a team of qualified pharmacists and friendly staff,we offer personalized services,expertadvice and a wide range of healthcare products to support your well-being.
+Our mission is simple:to help live helthier,feel better,and receive the care of you deserve.</p>
+         
+<p class="locate">Where conveniently located in Kahama,Shinyanga Region,on Msikiti wa ijumaa street,directly opposite Rosha Lodge.
+Our central location makes it easy for customer to access fast,reliable, and friendly pharmacy services</P>
+<img src="logic.jpg" width="70%" height="800">
+<ul>
+<li>Msikiti wa ijumaa street</li>
+<li>Opposite Rosha Lodge</li>
+<li>Kahama,Shinyanya Region,Tanzania</li></ul>
+
+
+<p class="loca"><b>Comprehensive healthcare solutions for your wellbeing</b></p>
+
+
+
+
+
+
+
+
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-prescription-bottle-alt"></i>
+                    </div>
+                    <h3>Digital Prescriptions</h3>
+                    <p>Secure electronic prescriptions with automatic refill reminders and medication synchronization.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3>Vaccination Hub</h3>
+                    <p>Full range of immunizations including travel vaccines, flu shots, and COVID-19 vaccinations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Health Screenings</h3>
+                    <p>Comprehensive health checks including blood pressure, cholesterol, glucose, and BMI monitoring.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>Medication Therapy</h3>
+                    <p>Personalized medication reviews and management for chronic conditions and complex regimens.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<p><b><h3>&nbsp&nbspOur other office location in Geita known as Ndanekwa Pharmacy:</h3></b></p>
+<p class="sub"> We have another office located in Geita,Which known by the name Ndanekwa pharmacy.
+This office serves as an important branch for our operation in the region,Offering the same quality of services
+that an our clients are accustomed to.
+Whether you are in need of assistance or seeking more informtion,Our Ndanekwa office is ready to provide support and meet your needs  </p>
+<img src="ndanekwa.jpg" width="80%" height="500">
+   
+
+    <!-- Products Section -->
+    <section class="products section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Products</h2>
+                <p>Premium quality healthcare products for your needs</p>
+
+
+
+ <h3>Shop by categorie:</h3>
+<p><b>We offer a comprehensive selection of high-quality pharmaceutical and 
+healthcare products,including:</b></p><br>
+
+<ul>
+
+<li class="duct">Tablets </li>
+<img src="vitamin c.jpg" width="50%" height="300">
+
+
+<li class="duct">Medical tools </li>
+<img src="tool.png" width="50%" height="500">
+
+<li class="duct">Syrup </li> 
+<img src="syrup.png" width="30%" height="400">
+
+<li class="duct">Supplements & Cosmetic </li>
+<img src="cosmetic.png" width="40%" height="400">
+
+ 
+<li class="duct">Baby care essentials  </li>
+<img src="diper1.jpg" width="50%" height="300">
+
+<li class="duct">Cream & Oitment </li>
+<img src="oitment.jpg" width="50%" height="300">
+
+</ul>
+
+ 
+     
+      
+      
+
+<p>Every product we provide is sourced from trusted suppliers and
+meets professional standards.Your health is our priority</p>
+
+            </div>
+            <div class="products-filter" id="productsFilter">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="prescription">Prescription</button>
+                <button class="filter-btn" data-filter="otc">Over-the-Counter</button>
+                <button class="filter-btn" data-filter="wellness">Wellness</button>
+                <button class="filter-btn" data-filter="personal-care">Personal Care</button>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>  
+    </section>
+
+<div class="image"><video width="90%" height="300" controls>
+     <source src="promo.mp4" type="video/mp4"></video><div>
+
+    <!-- Health Monitor Section -->
+    <section class="health-monitor section" id="health-monitor">
+        <div class="container">
+            <div class="section-title">
+                <h2>Health Risk Assessment</h2>
+                <p>Monitor your health indicators with our advanced assessment tool</p>
+<p>Your health matters-track it with confidence.
+Our Health Monitor services help you stay informed and proactive about your wellness.We provide:
+<ul>
+<li>Blood Pressure checks  </li>
+<li>Blood sugar monitoring  </li>
+<li>Blood mass index(BMI) assessment</li>
+<li>Medication reviews and counseling </li></ul>
+<p>These services are designed to give you a clear understanding of your health status
+and support better lifestyle choices</p>
+
+            </div>
+            <div class="monitor-container">
+                <div class="monitor-form">
+                    <h3>Enter Your Health Data</h3>
+                    <form id="healthForm">
+                        <div class="form-group">
+                            <label class="form-label">Age</label>
+                            <input type="number" class="form-input" id="age" min="1" max="120" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Blood Pressure (mmHg)</label>
+                            <input type="text" class="form-input" id="bloodPressure" placeholder="e.g., 120/80" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Blood Sugar (mg/dL)</label>
+                            <input type="number" class="form-input" id="bloodSugar" min="50" max="500" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Cholesterol Level (mg/dL)</label>
+                            <select class="form-select" id="cholesterol" required>
+                                <option value="">Select level</option>
+                                <option value="optimal">Optimal (&lt;200)</option>
+                                <option value="borderline">Borderline High (200-239)</option>
+                                <option value="high">High (&ge;240)</option>
+                            </select>
+
+
+
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">BMI Category</label>
+                            <select class="form-select" id="bmi" required>
+                                <option value="">Select category</option>
+                                <option value="underweight">Underweight (&lt;18.5)</option>
+                                <option value="normal">Normal (18.5-24.9)</option>
+                                <option value="overweight">Overweight (25-29.9)</option>
+                                <option value="obese">Obese (&ge;30)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fas fa-chart-line"></i> Analyze Health Data
+                        </button>
+                    </form>
+                </div>
+                <div class="monitor-results">
+                    <h3 class="results-title">Your Health Assessment</h3>
+                    <div id="resultsContainer">
+                        <div class="result-item">
+                            <div class="result-label">
+                                <span>Overall Health Score</span>
+                                <span class="result-value" id="overallScore">--</span>
+                            </div>
+                            <div class="result-bar">
+                                <div class="result-fill" id="overallBar"></div>
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">
+                                <span>Cardiovascular Risk</span>
+                                <span class="result-value" id="cardioRisk">--</span>
+                            </div>
+                            <div class="result-bar">
+                                <div class="result-fill" id="cardioBar"></div>
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">
+                                <span>Diabetes Risk</span>
+                                <span class="result-value" id="diabetesRisk">--</span>
+                            </div>
+                            <div class="result-bar">
+                                <div class="result-fill" id="diabetesBar"></div>
+                            </div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">
+                                <span>Recommended Actions</span>
+                            </div>
+                            <div id="recommendations">
+                                <p style="color: rgba(255,255,255,0.8);">Submit your health data to get personalized recommendations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors section" id="doctors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our depertment</h2>
+                <p>Consult with our licensed healthcare professionals and service providers</p>
+<p>Our Pharmacy is organised into dedicated department to serve you efficiently</p>
+
+<table>
+<tr><td class="depert">*Dispensary --Accurate and timely prescription filling</td></tr>
+<tr><td class="depert">*Consultation-- Proffessional guidance on medications and health concern</td></tr>
+<tr><td class="depert">*Over-the-counter--Quick access to essential medicines and wellness product</td></tr>
+<tr><td class="depert">*Customer support--Assistance with insurance,refills,and general inquiries</td></tr>
+<tr><td class="depert">*Health Services Unit--Monitoring testing and preventive care</td></tr>
+</table>
+
+<p>Each department works together to ensure safe,convenient,and comprehesive healthcare support</p>
+
+
+
+            </div>
+            <div class="doctors-grid" id="doctorsGrid">
+                <!-- Doctors will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="logo-icon" style="width: 40px; height: 40px;">
+                            <i class="fas fa-prescription-bottle-alt"></i>
+                        </div>
+                        <div class="">NKWANE<span>&nbspPHARMACY</span></div>
+                    </div>
+                    <p class="footer-text">Providing exceptional pharmaceutical care with cutting-edge technology and compassionate service since 2020.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i>About Us</a></li>
+                        <li><a href="#products"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="#health-monitor"><i class="fas fa-chevron-right"></i> Health Monitor</a></li>
+                        <li><a href="#doctors"><i class="fas fa-chevron-right"></i> Department</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Prescription Services</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Vaccinations</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Health Screenings</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Medication Therapy</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home Delivery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact">
+                        <p><i class=""></i>☎ 0742 411  878 Emergency Call</p>
+                        <p><i class=""></i>🖱0745 626 708 secretary</p>
+                        <p><i class=""></i>📞0769 583 117 Manager</p>
+                        <p><i class=""></i>🚚 0758 388 248 Transporter</p>
+                        <p><i class=""></i>📩email:Nkwanepharmacy532@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Nkwanepharmacylimited|All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.querySelector('.nav-links');
+            const searchContainer = document.querySelector('.search-container');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                searchContainer.style.display = searchContainer.style.display === 'block' ? 'none' : 'block';
+                
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '100%';
+                    navLinks.style.left = '0';
+                    navLinks.style.width = '100%';
+                    navLinks.style.backgroundColor = 'white';
+                    navLinks.style.padding = '20px';
+                    navLinks.style.boxShadow = 'var(--shadow-lg)';
+                    searchContainer.style.position = 'relative';
+                    searchContainer.style.marginTop = '20px';
+                    searchContainer.style.width = '100%';
+                    searchContainer.querySelector('.search-input').style.width = '100%';
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 768) {
+                            navLinks.style.display = 'none';
+                            searchContainer.style.display = 'none';
+                        }
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Active nav link on scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navLinksAll = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinksAll.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Product data
+            const products = [
+                {
+                    id: 1,
+                    name: "Advanced Multivitamin Complex",
+                    category: "wellness",
+                    description: "Premium daily multivitamin with 25 essential nutrients for optimal health support.",
+                    price: 3000.00,
+                    originalPrice: 5000.00,
+                    badge: "Bestseller",
+                    imageColor: "#3b82f6"
+                },
+                {
+                    id: 2,
+                    name: "Blood Pressure Medication",
+                    category: "prescription",
+                    description: "Effective treatment for hypertension with 24-hour blood pressure control.",
+                    price: 27000.00,
+                    originalPrice: null,
+                    badge: null,
+                    imageColor: "#ef4444"
+                },
+                {
+                    id: 3,
+                    name: "Allergy Relief Max",
+                    category: "otc",
+                    description: "Non-drowsy formula for 24-hour relief from seasonal allergy symptoms.",
+                    price: 6000.00,
+                    originalPrice: 10000.00,
+                    badge: "Sale",
+                    imageColor: "#10b981"
+                },
+                {
+                    id: 4,
+                    name: "Antibacterial Hand Sanitizer",
+                    category: "personal-care",
+                    description: "Alcohol-based sanitizer with moisturizers, kills 99.9% of germs.",
+                    price: 5000.00,
+                    originalPrice: null,
+                    badge: null,
+                    imageColor: "#f59e0b"
+                },
+                {
+                    id: 5,
+                    name: "Diabetes Care Meter",
+                    category: "wellness",
+                    description: "Advanced glucose monitoring system with Bluetooth connectivity.",
+                    price: 2000.00,
+                    originalPrice: 4000.00,
+                    badge: "New",
+                    imageColor: "#8b5cf6"
+                },
+                {
+                    id: 6,
+                    name: "Pain Relief Cream",
+                    category: "otc",
+                    description: "Fast-acting topical cream for muscle and joint pain relief.",
+                    price: 22000.00,
+                    originalPrice: null,
+                    badge: null,
+                    imageColor: "#6366f1"
+                },
+                {
+                    id: 7,
+                    name: "Cholesterol Management",
+                    category: "prescription",
+                    description: "Prescription strength medication for cholesterol control.",
+                    price: 8000.00,
+                    originalPrice: null,
+                    badge: null,
+                    imageColor: "#ec4899"
+                },
+                {
+                    id: 8,
+                    name: "Vitamin D3 5000IU",
+                    category: "wellness",
+                    description: "High potency vitamin D supplements for immune system support.",
+                    price: 1000.00,
+                    originalPrice: 2500.00,
+                    badge: "Sale",
+                    imageColor: "#f97316"
+                }
+            ];
+
+            // Render products
+            const productsGrid = document.getElementById('productsGrid');
+            
+            function renderProducts(filter = 'all') {
+                productsGrid.innerHTML = '';
+                
+                const filteredProducts = filter === 'all' 
+                    ? products 
+                    : products.filter(product => product.category === filter);
+                
+                filteredProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.setAttribute('data-category', product.category);
+                    
+                    productCard.innerHTML = `
+                        ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                        <div class="product-image" style="background: linear-gradient(135deg, ${product.imageColor}20 0%, ${product.imageColor}40 100%)">
+                            <img src="" alt="${product.name}" onerror="this.style.display='none'">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${product.category.replace('-', ' ').toUpperCase()}</div>
+                            <h3 class="product-title">${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-price">
+                                <span class="current-price">$${product.price.toFixed(2)}</span>
+                                ${product.originalPrice ? `<span class="original-price">$${product.originalPrice.toFixed(2)}</span>` : ''}
+                            </div>
+                            <button class="btn" style="width: 100%;" onclick="showProductDetails(${product.id})">
+                                <i class="fas fa-info-circle"></i> View Details
+                            </button>
+                        </div>
+                    `;
+                    
+                    productsGrid.appendChild(productCard);
+                });
+            }
+
+            // Initialize products
+            renderProducts();
+
+            // Product filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter products
+                    const filter = this.getAttribute('data-filter');
+                    renderProducts(filter);
+                });
+            });
+
+            // Doctors data
+            const doctors = [
+                {
+                    id: 1,
+                    name: "Dr. Neema",
+                    specialty: "Director Nkwane pharmacy",
+                    rating: 4.9,
+                    availability: "available",
+                    experience: "12 years",
+                    imageColor: "#3b82f6"
+                },
+                {
+                    id: 2,
+                    name: "Dr. Salehe Nkwabi",
+                    specialty: "Pharmaceutical Care",
+                    rating: 4.8,
+                    availability: "available",
+                    experience: "8 years",
+                    imageColor: "#10b981"
+                },
+                {
+                    id: 3,
+                    name: "Mwanaid",
+                    specialty: "Secretary",
+                    rating: 4.7,
+                    availability: "unavailable",
+                    experience: "15 years",
+                    imageColor: "#8b5cf6"
+                },
+                {
+                    id: 4,
+                    name: "Mr.Joanes",
+                    specialty: "Secretary",
+                    rating: 4.9,
+                    availability: "available",
+                    experience: "20 years",
+                    imageColor: "#f59e0b"
+                }
+            ];
+
+            // Render doctors
+            const doctorsGrid = document.getElementById('doctorsGrid');
+            
+            doctors.forEach(doctor => {
+                const doctorCard = document.createElement('div');
+                doctorCard.className = 'doctor-card';
+                
+                doctorCard.innerHTML = `
+                    <div class="doctor-image" style="background: linear-gradient(135deg, ${doctor.imageColor} 0%, ${doctor.imageColor}80 100%)">
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>${doctor.name}</h3>
+                        <div class="doctor-specialty">${doctor.specialty}</div>
+                        <div class="doctor-rating">
+                            ${'★'.repeat(Math.floor(doctor.rating))}${doctor.rating % 1 >= 0.5 ? '★' : ''}
+                            <span style="color: var(--gray); margin-left: 5px;">${doctor.rating}</span>
+                        </div>
+                        <p style="color: var(--gray); margin-bottom: 15px;">${doctor.experience} of experience</p>
+                        <div class="doctor-availability ${doctor.availability}">
+                            <i class="fas fa-circle" style="font-size: 0.7rem;"></i>
+                            ${doctor.availability === 'available' ? 'Available Today' : 'Currently Unavailable'}
+                        </div>
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 15px;" onclick="scheduleConsultation(${doctor.id})">
+                            <i class="fas fa-calendar-check"></i> Schedule Consultation
+                        </button>
+                    </div>
+                `;
+                
+                doctorsGrid.appendChild(doctorCard);
+            });
+
+            // Health form submission
+            const healthForm = document.getElementById('healthForm');
+            healthForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const age = parseInt(document.getElementById('age').value);
+                const bloodPressure = document.getElementById('bloodPressure').value;
+                const bloodSugar = parseInt(document.getElementById('bloodSugar').value);
+                const cholesterol = document.getElementById('cholesterol').value;
+                const bmi = document.getElementById('bmi').value;
+                
+                // Calculate scores (simplified for demo)
+                let overallScore = 75;
+                let cardioRisk = 'Low';
+                let diabetesRisk = 'Low';
+                
+                // Age factor
+                if (age > 60) overallScore -= 10;
+                else if (age > 40) overallScore -= 5;
+                
+                // Blood pressure factor
+                const bpValues = bloodPressure.split('/');
+                if (bpValues.length === 2) {
+                    const systolic = parseInt(bpValues[0]);
+                    const diastolic = parseInt(bpValues[1]);
+                    
+                    if (systolic >= 140 || diastolic >= 90) {
+                        overallScore -= 15;
+                        cardioRisk = 'High';
+                    } else if (systolic >= 130 || diastolic >= 85) {
+                        overallScore -= 10;
+                        cardioRisk = 'Moderate';
+                    }
+                }
+                
+                // Blood sugar factor
+                if (bloodSugar >= 126) {
+                    overallScore -= 20;
+                    diabetesRisk = 'High';
+                } else if (bloodSugar >= 100) {
+                    overallScore -= 10;
+                    diabetesRisk = 'Moderate';
+                }
+                
+                // Cholesterol factor
+                if (cholesterol === 'high') {
+                    overallScore -= 15;
+                    cardioRisk = 'High';
+                } else if (cholesterol === 'borderline') {
+                    overallScore -= 8;
+                    cardioRisk = cardioRisk === 'Low' ? 'Moderate' : cardioRisk;
+                }
+                
+                // BMI factor
+                if (bmi === 'obese') {
+                    overallScore -= 12;
+                    diabetesRisk = diabetesRisk === 'Low' ? 'Moderate' : diabetesRisk;
+                    cardioRisk = cardioRisk === 'Low' ? 'Moderate' : cardioRisk;
+                } else if (bmi === 'overweight') {
+                    overallScore -= 7;
+                } else if (bmi === 'underweight') {
+                    overallScore -= 5;
+                }
+                
+                // Ensure score is within bounds
+                overallScore = Math.max(0, Math.min(100, overallScore));
+                
+                // Update results
+                document.getElementById('overallScore').textContent = `${overallScore}/100`;
+                document.getElementById('cardioRisk').textContent = cardioRisk;
+                document.getElementById('diabetesRisk').textContent = diabetesRisk;
+                
+                // Animate bars
+                setTimeout(() => {
+                    document.getElementById('overallBar').style.width = `${overallScore}%`;
+                    
+                    const cardioPercent = cardioRisk === 'High' ? 85 : cardioRisk === 'Moderate' ? 60 : 30;
+                    document.getElementById('cardioBar').style.width = `${cardioPercent}%`;
+                    
+                    const diabetesPercent = diabetesRisk === 'High' ? 80 : diabetesRisk === 'Moderate' ? 55 : 25;
+                    document.getElementById('diabetesBar').style.width = `${diabetesPercent}%`;
+                }, 100);
+                
+                // Generate recommendations
+                const recommendations = document.getElementById('recommendations');
+                recommendations.innerHTML = '';
+                
+                let recommendationsList = [];
+                
+                if (cardioRisk === 'High' || cardioRisk === 'Moderate') {
+                    recommendationsList.push('Consider regular blood pressure monitoring');
+                    recommendationsList.push('Discuss cholesterol management with your doctor');
+                    recommendationsList.push('Increase physical activity (30 min daily)');
+                }
+                
+                if (diabetesRisk === 'High' || diabetesRisk === 'Moderate') {
+                    recommendationsList.push('Monitor blood sugar levels regularly');
+                    recommendationsList.push('Follow a balanced diet low in processed sugars');
+                    recommendationsList.push('Maintain healthy body weight');
+                }
+                
+                if (overallScore < 70) {
+                    recommendationsList.push('Schedule a comprehensive health checkup');
+                    recommendationsList.push('Consult with our pharmacists for personalized advice');
+                }
+                
+                if (recommendationsList.length === 0) {
+                    recommendationsList.push('Maintain your healthy lifestyle with regular checkups');
+                }
+                
+                recommendationsList.forEach(rec => {
+                    const p = document.createElement('p');
+                    p.style.cssText = 'color: rgba(255,255,255,0.9); margin-bottom: 8px; display: flex; align-items: flex-start;';
+                    p.innerHTML = `<i class="fas fa-check-circle" style="color: #10b981; margin-right: 10px; margin-top: 3px;"></i> ${rec}`;
+                    recommendations.appendChild(p);
+                });
+                
+                // Add a call to action
+                const cta = document.createElement('div');
+                cta.style.marginTop = '15px';
+                cta.innerHTML = `
+                    <a href="#doctors" class="btn" style="background: white; color: var(--primary);">
+                        <i class="fas fa-user-md"></i> Consult Our Experts
+                    </a>
+                `;
+                recommendations.appendChild(cta);
+            });
+
+            // Search functionality
+            const searchInput = document.querySelector('.search-input');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const allProductCards = document.querySelectorAll('.product-card');
+                
+                allProductCards.forEach(card => {
+                    const productName = card.querySelector('.product-title').textContent.toLowerCase();
+                    const productCategory = card.querySelector('.product-category').textContent.toLowerCase();
+                    const productDesc = card.querySelector('.product-description').textContent.toLowerCase();
+                    
+                    if (productName.includes(searchTerm) || 
+                        productCategory.includes(searchTerm) || 
+                        productDesc.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Global functions
+        function showProductDetails(productId) {
+            alert(`Product ID: ${productId}\n\nFeature coming soon: Detailed product information, ingredients, usage instructions, and more.`);
+        }
+
+        function scheduleConsultation(doctorId) {
+            alert(`Scheduling consultation with Doctor ID: ${doctorId}\n\nThis feature would connect you to our appointment booking system.`);
+        }
+
+
+    </script>
+</body>
+</html>
